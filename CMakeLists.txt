@@ -5,10 +5,14 @@ set(CMAKE_CXX_STANDARD 14)
 
 set(JAVA_HOME $ENV{JAVA_HOME})
 
-set(INC_DIR ${JAVA_HOME}/include;${JAVA_HOME}/include/win32;)
-set(LINK_DIR ${JAVA_HOME}/lib)
+set(INC_DIR ${JAVA_HOME}/include ${JAVA_HOME}/include/win32)
+set(LINK_DIR ${JAVA_HOME}/lib libs/${CMAKE_BUILD_TYPE})
 set(SOURCE_FILES com_ft_encrypt_Encrypt.h Encrypt.cpp)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "../../ModifyJar/Encrypt")
+
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ../libs/${CMAKE_BUILD_TYPE})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ../libs/${CMAKE_BUILD_TYPE})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin/${CMAKE_BUILD_TYPE})
+#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "../../ModifyJar/Encrypt")
 
 include_directories(${INC_DIR})
 link_directories(${LINK_DIR})
